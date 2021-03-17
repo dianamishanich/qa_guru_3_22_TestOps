@@ -2,11 +2,17 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
+import com.github.javafaker.Faker;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
@@ -14,13 +20,19 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class RegistrationFormTest {
+
+@Feature("Form fill tests")
+@Story("Student registration")
+public class RegistrationFormTest extends TestBase {
 
 
     @BeforeAll
     static void setup() {
         Configuration.startMaximized = true;
     }
+    Faker faker = new Faker();
+    FakeValuesService fakeValuesService = new FakeValuesService(
+            new Locale("en-GB"), new RandomService());
 
     String firstName = "Di",
             lastName = "M",
