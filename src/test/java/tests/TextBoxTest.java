@@ -14,28 +14,34 @@ import static io.qameta.allure.Allure.step;
     @Feature("Form fill tests")
     @Story("Text box")
     public class TextBoxTest extends TestBase {
+        String userName = "Di",
+                lastName = "M",
+                userEmail = "leprekon@ya.ru",
+                currentAddress = "Dublin",
+                permanentAddress = "St. Patrick Street, 17";
 
         @Test
         @DisplayName("Successful fill text box form")
         void fillFormTest() {
+
             step("Open Text Box form", () -> {
                 open("https://demoqa.com/text-box");
                 $(".main-header").shouldHave(text("Text Box"));
             });
 
             step("Fill Text Box form", () -> {
-                $("#userName").val("Alex");
-                $("#userEmail").val("Egorov@alex.com");
-                $("#currentAddress").val("Montenegro");
-                $("#permanentAddress").val("Street 1");
+                $("#userName").val(userName);
+                $("#userEmail").val(userEmail);
+                $("#currentAddress").val(currentAddress);
+                $("#permanentAddress").val(permanentAddress);
                 $("#submit").click();
             });
 
             step("Verify successful form submit", () -> {
-                $("#output").shouldHave(text("Name:Alex\n" +
-                        "Email:Egorov@alex.com\n" +
-                        "Current Address :Montenegro\n" +
-                        "Permananet Address :Street 1"));
+                $("#output").shouldHave(text("Name:Di\n" +
+                        "Email:leprekon@ya.ru\n" +
+                        "Current Address :Dublin\n" +
+                        "Permananet Address :St. Patrick Street, 17"));
             });
         }
 
@@ -48,10 +54,10 @@ import static io.qameta.allure.Allure.step;
             });
 
             step("Fill Text Box form", () -> {
-                $("#userName").val("Alex");
-                $("#userEmail").val("Egorov");
-                $("#currentAddress").val("Montenegro");
-                $("#permanentAddress").val("Street 1");
+                $("#userName").val(userName);
+                $("#userEmail").val(currentAddress);
+                $("#currentAddress").val(currentAddress);
+                $("#permanentAddress").val(permanentAddress);
                 $("#submit").click();
             });
 
