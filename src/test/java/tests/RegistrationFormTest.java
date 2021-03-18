@@ -148,7 +148,7 @@ public class RegistrationFormTest extends TestBase {
         });
 
         step("Verify wrong form submit", () -> {
-            $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 65)"));
+            $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
         });
 
     }
