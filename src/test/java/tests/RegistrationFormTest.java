@@ -1,7 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
@@ -24,12 +23,6 @@ import static io.qameta.allure.Allure.step;
 @Feature("Form fill tests")
 @Story("Student registration")
 public class RegistrationFormTest extends TestBase {
-
-
-    @BeforeAll
-    static void setup() {
-        Configuration.startMaximized = true;
-    }
     Faker faker = new Faker();
     FakeValuesService fakeValuesService = new FakeValuesService(
             new Locale("en-GB"), new RandomService());
@@ -48,6 +41,11 @@ public class RegistrationFormTest extends TestBase {
             city = "Karnal";
     String[] subjects = { "Economics", "Social Studies" };
     String[] hobbies = { "Sports", "Reading", "Music" };
+
+    @BeforeAll
+    static void setup() {
+        Configuration.startMaximized = true;
+    }
 
     @Test
     @DisplayName("Successful fill registration form")
