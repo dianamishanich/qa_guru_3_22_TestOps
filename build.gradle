@@ -37,7 +37,7 @@ allure {
 
 dependencies {
     testImplementation (
-            "org.aspectj:aspectjweaver:1.9.5",
+            "org.aspectj:aspectjweaver:1.9.6",
             "com.codeborne:selenide:${selenideVersion}",
             "io.qameta.allure:allure-selenide:${allureVersion}",
             "ch.qos.logback:logback-classic:1.2.3",
